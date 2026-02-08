@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>qr code attandace system</title>
+    <link rel="stylesheet" href="style.css">
+    <!---qr code generator-->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script> -->
+    <!--qr code scanner-->
+    <!-- <script src="https://unpkg.com/html5-qrcode"></script> -->
+    <!---add html file to canva cdn-->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script> -->
+
+    <!-- QR Code Generator -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+
+    <!-- QR Code Scanner -->
+    <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+
+    <!-- Download QR -->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+</head>
+
+<body>
+    <!-- Profile Photo with Name -->
+   <div id="profile">
+    <img src="abhi2_png.jpg" alt="Profile Photo">
+    <span class="profile-name">ABHISHEK SHAH</span>
+</div>
+
+    <div id="authOverlay"></div>
+
+    <div id="authBox" class="card">
+        <h2>Login</h2>
+        <input type="text" id="authUser" placeholder="Username">
+        <input type="password" id="authPass" placeholder="Password">
+        <button onclick="login()">Login</button>
+        <button onclick="register()" style="margin-top:10px;background:#28a745;">
+            Register
+        </button>
+        <p id="authMsg" style="margin-top:10px;color:red;"></p>
+    </div>
+
+    <button id="logoutBtn" onclick="logout()" style="display:none;margin:10px;">
+        Logout
+    </button>
+
+<button id="bgToggleBtn" class="bg-btn">
+    Change Background
+</button>
+
+
+    <h1> ABHI QR Code Attendance System</h1>
+    <div class="container">
+        <div class="card">
+            <h2>Add Student & Generate QR</h2>
+            <input type="text" id="name" placeholder="Enter Name">
+            <input type="text" id="roll" placeholder="Enter Roll Number">
+            <button id="generateBtn">Generate QR Code</button>
+        </div>
+
+        <div class="card" id="qrDisplayContainer" style="display:none;">
+            <h2>Generated QR</h2>
+            <div id="userInfo"></div>
+            <div id="qrcode"></div>
+            <button id="downloadQrBtn">Download QR</button>
+        </div>
+
+        <div class="card scanner">
+            <h2>Scan QR (Attendance)</h2>
+            <div id="reader"></div>
+        </div>
+    </div>
+
+
+    <div class="attendance-section">
+        <h2>List of Present Student</h2>
+        <table id="attendanceTable">
+            <thead>
+                <tr>
+                    <th>Roll</th>
+                    <th>Name</th>
+                    <th>Status</th>
+                    <th>Count</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

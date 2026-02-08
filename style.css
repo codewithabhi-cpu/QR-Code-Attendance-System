@@ -1,0 +1,326 @@
+
+ /* =====================
+   PROFILE PHOTO + NAME (RIGHT CORNER)
+===================== */
+#profile {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+    background: rgba(255,255,255,0.9); /* Optional: subtle background */
+    padding: 5px 10px;
+    border-radius: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Profile Image */
+#profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Circular */
+    object-fit: cover;
+    border: 2px solid #007bff;
+}
+
+/* Profile Name */
+.profile-name {
+    font-weight: bold;
+    color: #007bff;
+    font-size: 16px;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 768px) {
+    #profile img {
+        width: 40px;
+        height: 40px;
+    }
+    .profile-name {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    #profile {
+        top: 10px;
+        right: 10px;
+        padding: 3px 8px;
+        gap: 5px;
+    }
+    #profile img {
+        width: 35px;
+        height: 35px;
+    }
+    .profile-name {
+        font-size: 12px;
+    }
+}
+
+
+/* =====================
+   WEBSITE LOCK (LOGIN)
+===================== */
+
+/* =====================
+   LOGIN LOCK SYSTEM
+===================== */
+
+body.locked {
+    overflow: hidden;
+}
+
+/* Disable & blur website */
+body.locked #app {
+    filter: blur(6px);
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Dark overlay */
+#authOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    z-index: 999;
+    display: none;
+}
+
+/* Login box */
+#authBox {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    width: 320px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    display: none;
+}
+
+/* Background themes */
+body {
+    transition: background-color 0.4s ease;
+}
+
+body.light-mode {
+    background-color: #f4f6f9;
+    color: #000;
+}
+
+body.dark-mode {
+    background-color: #e25757;
+    color: #171414;
+}
+
+/* Classic Responsive Background Button */
+.bg-btn {
+    display: inline-block;
+    margin: 12px auto;
+    padding: 10px 22px;
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 0.4px;
+
+    color: #fff;
+    background: linear-gradient(135deg, #2c3e50, #4b6584);
+    border: 1px solid #2c3e50;
+    border-radius: 30px;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Hover effect (desktop) */
+.bg-btn:hover {
+    background: linear-gradient(135deg, #1e272e, #485460);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+    transform: translateY(-1px);
+}
+
+/* Click effect */
+.bg-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+/* Focus (keyboard accessibility) */
+.bg-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52,152,219,0.4);
+}
+
+/* Dark mode tuning */
+body.dark-mode .bg-btn {
+    background: linear-gradient(135deg, #576574, #222f3e);
+    border-color: #576574;
+}
+
+/* 📱 Mobile responsive */
+@media (max-width: 600px) {
+    .bg-btn {
+        width: 90%;
+        font-size: 16px;
+        padding: 12px;
+        border-radius: 25px;
+    }
+}
+
+
+
+
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #e96565;
+    padding: 20px;
+}
+
+/* Headings */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+h2 {
+    margin-bottom: 15px;
+    color: #444;
+}
+
+/* Main container */
+.container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap; /* KEY for responsiveness */
+}
+
+/* Cards */
+.card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 320px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Inputs */
+.card input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Buttons */
+.card button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #007bff;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.card button:hover {
+    background: #0056b3;
+}
+
+/* QR section */
+#qrcode {
+    margin: 15px auto;
+    text-align: center;
+}
+
+#userInfo {
+    margin-bottom: 10px;
+}
+
+/* Scanner */
+.scanner {
+    width: 340px;
+}
+
+/* Attendance table section */
+.attendance-section {
+    margin-top: 30px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow-x: auto; /* Mobile scroll */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: #007bff;
+    color: white;
+}
+
+td, th {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+/* ===========================
+   RESPONSIVE BREAKPOINTS
+=========================== */
+
+/* Tablets */
+@media (max-width: 768px) {
+    .card {
+        width: 100%;
+    }
+
+    .scanner {
+        width: 100%;
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    td, th {
+        font-size: 13px;
+        padding: 8px;
+    }
+}
+
